@@ -16,9 +16,15 @@ public class JUDGE {
 	        //System.out.println("パースできてる");
 	        String[] strArray = num.split("");
 	        Set<String> set = new HashSet<String>();
-	        set.add(strArray[1]);
+	        /* 間違い：配列は添字０から始まるので ArrayIndexOutOfBoundsErrorが出てしまう
+		set.add(strArray[1]);
 	        set.add(strArray[2]);
 	        set.add(strArray[3]);
+		*/
+		set.add(strArray[0]);
+	        set.add(strArray[1]);
+	        set.add(strArray[2]);
+		    
 	        if(num.length() == 3 && set.size() ==3){
 	        	return true;
 	        }else{
@@ -34,9 +40,12 @@ public class JUDGE {
 		JUDGE eatbite = new JUDGE();
 		String[] predictArray = predict.split("");
 		String[] tekinumArray = tekinum.split("");
-
+		/* 間違い：配列は添字０から始まるので、Eat/Biteのチェックがずれてしまう
 		for(int i = 1;i < predictArray.length;i++){
 			for(int j = 1;j < predictArray.length;j++){
+		*/
+		for(int i = 0;i < predictArray.length;i++){
+			for(int j = 0;j < predictArray.length;j++){
 				if(predictArray[i].equals(tekinumArray[j])){	//==だとだめ
 					if(i == j){				//eat
 						eatbite.eat++;
